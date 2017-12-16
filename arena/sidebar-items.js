@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DroplessArena",""],["TypedArena","An arena that can hold objects of only one type."]]});

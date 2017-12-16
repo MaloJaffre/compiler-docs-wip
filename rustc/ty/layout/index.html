@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `layout` mod in crate `rustc`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, layout">
+
+    <title>rustc::ty::layout - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    <link rel="shortcut icon" href="https://doc.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        <a href='../../../rustc/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
+        <p class='location'>Module layout</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../../index.html'>rustc</a>::<wbr><a href='../index.html'>ty</a></p><script>window.sidebarCurrent = {name: 'layout', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>rustc</a>::<wbr><a href='../index.html'>ty</a>::<wbr><a class="mod" href=''>layout</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version '></span><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/rustc/ty/layout.rs.html#11-2507' title='goto source code'>[src]</a></span></h1>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use self::<a class="enum" href="../../../rustc/ty/layout/enum.Integer.html" title="enum rustc::ty::layout::Integer">Integer</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="enum" href="../../../rustc/ty/layout/enum.Primitive.html" title="enum rustc::ty::layout::Primitive">Primitive</a>::*;</code></td></tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class='unstable module-item'>
+                           <td><a class="struct" href="struct.Align.html"
+                                  title='struct rustc::ty::layout::Align'>Align</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>Alignment of a type in bytes, both ABI-mandated and preferred.
+Each field is a power of two, giving the alignment a maximum
+value of 2<sup>2<sup>8</sup> - 1</sup>, which is limited by LLVM to a i32, with
+a maximum capacity of 2<sup>31</sup> - 1 or 2147483647.</p>
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="struct" href="struct.LayoutDetails.html"
+                                  title='struct rustc::ty::layout::LayoutDetails'>LayoutDetails</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] 
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="struct" href="struct.Scalar.html"
+                                  title='struct rustc::ty::layout::Scalar'>Scalar</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>Information about one scalar component of a Rust type.</p>
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="struct" href="struct.Size.html"
+                                  title='struct rustc::ty::layout::Size'>Size</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>Size of a type in bytes.</p>
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="struct" href="struct.TargetDataLayout.html"
+                                  title='struct rustc::ty::layout::TargetDataLayout'>TargetDataLayout</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>Parsed <a href="http://llvm.org/docs/LangRef.html#data-layout">Data layout</a>
+for a target, which contains everything needed to compute layouts.</p>
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="struct" href="struct.TyLayout.html"
+                                  title='struct rustc::ty::layout::TyLayout'>TyLayout</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>The details of the layout of a type, alongside the type itself.
+Provides various type traversal APIs (e.g. recursing into fields).</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class='unstable module-item'>
+                           <td><a class="enum" href="enum.Abi.html"
+                                  title='enum rustc::ty::layout::Abi'>Abi</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>Describes how values of the type are passed by target ABIs,
+in terms of categories of C types there are ABI rules for.</p>
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="enum" href="enum.Endian.html"
+                                  title='enum rustc::ty::layout::Endian'>Endian</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>Endianness of the target, which must match cfg(target-endian).</p>
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="enum" href="enum.FieldPlacement.html"
+                                  title='enum rustc::ty::layout::FieldPlacement'>FieldPlacement</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>Describes how the fields of a type are located in memory.</p>
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="enum" href="enum.Integer.html"
+                                  title='enum rustc::ty::layout::Integer'>Integer</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>Integers, also used for enum discriminants.</p>
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="enum" href="enum.LayoutError.html"
+                                  title='enum rustc::ty::layout::LayoutError'>LayoutError</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] 
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="enum" href="enum.Primitive.html"
+                                  title='enum rustc::ty::layout::Primitive'>Primitive</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>Fundamental unit of memory access and layout.</p>
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="enum" href="enum.SizeSkeleton.html"
+                                  title='enum rustc::ty::layout::SizeSkeleton'>SizeSkeleton</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>Type size &quot;skeleton&quot;, i.e. the only information determining a type&#39;s size.
+While this is conservative, (aside from constant sizes, only pointers,
+newtypes thereof and null pointer optimized enums are allowed), it is
+enough to statically check common usecases of transmute.</p>
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="enum" href="enum.Variants.html"
+                                  title='enum rustc::ty::layout::Variants'>Variants</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] 
+                           </td>
+                       </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
+<table>
+                       <tr class='unstable module-item'>
+                           <td><a class="constant" href="constant.FAT_PTR_ADDR.html"
+                                  title='constant rustc::ty::layout::FAT_PTR_ADDR'>FAT_PTR_ADDR</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>The first half of a fat pointer.
+- For a trait object, this is the address of the box.
+- For a slice, this is the base address.</p>
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="constant" href="constant.FAT_PTR_EXTRA.html"
+                                  title='constant rustc::ty::layout::FAT_PTR_EXTRA'>FAT_PTR_EXTRA</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] <p>The second half of a fat pointer.
+- For a trait object, this is the address of the vtable.
+- For a slice, this is the length.</p>
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class='unstable module-item'>
+                           <td><a class="trait" href="trait.HasDataLayout.html"
+                                  title='trait rustc::ty::layout::HasDataLayout'>HasDataLayout</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] 
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="trait" href="trait.HasTyCtxt.html"
+                                  title='trait rustc::ty::layout::HasTyCtxt'>HasTyCtxt</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] 
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="trait" href="trait.LayoutOf.html"
+                                  title='trait rustc::ty::layout::LayoutOf'>LayoutOf</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] 
+                           </td>
+                       </tr>
+                       <tr class='unstable module-item'>
+                           <td><a class="trait" href="trait.MaybeResult.html"
+                                  title='trait rustc::ty::layout::MaybeResult'>MaybeResult</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] 
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class='unstable module-item'>
+                           <td><a class="fn" href="fn.provide.html"
+                                  title='fn rustc::ty::layout::provide'>provide</a></td>
+                           <td class='docblock-short'>
+                               [<div class='stab unstable'>Experimental</div>] 
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "rustc";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

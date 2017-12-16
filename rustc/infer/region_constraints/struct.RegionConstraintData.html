@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `RegionConstraintData` struct in crate `rustc`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, RegionConstraintData">
+
+    <title>rustc::infer::region_constraints::RegionConstraintData - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    <link rel="shortcut icon" href="https://doc.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        <a href='../../../rustc/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
+        <p class='location'>Struct RegionConstraintData</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.constraints">constraints</a><a href="#structfield.verifys">verifys</a><a href="#structfield.givens">givens</a></div><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.is_empty">is_empty</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Default">Default</a></div></div><p class='location'><a href='../../index.html'>rustc</a>::<wbr><a href='../index.html'>infer</a>::<wbr><a href='index.html'>region_constraints</a></p><script>window.sidebarCurrent = {name: 'RegionConstraintData', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>rustc</a>::<wbr><a href='../index.html'>infer</a>::<wbr><a href='index.html'>region_constraints</a>::<wbr><a class="struct" href=''>RegionConstraintData</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version '></span><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/rustc/infer/region_constraints/mod.rs.html#86-118' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct RegionConstraintData&lt;'tcx&gt; {
+    pub constraints: <a class="struct" href="../../../alloc/btree/map/struct.BTreeMap.html" title="struct alloc::btree::map::BTreeMap">BTreeMap</a>&lt;<a class="enum" href="../../../rustc/infer/region_constraints/enum.Constraint.html" title="enum rustc::infer::region_constraints::Constraint">Constraint</a>&lt;'tcx&gt;, <a class="enum" href="../../../rustc/infer/enum.SubregionOrigin.html" title="enum rustc::infer::SubregionOrigin">SubregionOrigin</a>&lt;'tcx&gt;&gt;,
+    pub verifys: <a class="struct" href="../../../alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../../rustc/infer/region_constraints/struct.Verify.html" title="struct rustc::infer::region_constraints::Verify">Verify</a>&lt;'tcx&gt;&gt;,
+    pub givens: <a class="type" href="../../../rustc/util/nodemap/type.FxHashSet.html" title="type rustc::util::nodemap::FxHashSet">FxHashSet</a>&lt;<a class="primitive" href="../../../std/primitive.tuple.html">(</a><a class="type" href="../../../rustc/ty/type.Region.html" title="type rustc::ty::Region">Region</a>&lt;'tcx&gt;, <a class="struct" href="../../../rustc/ty/struct.RegionVid.html" title="struct rustc::ty::RegionVid">RegionVid</a><a class="primitive" href="../../../std/primitive.tuple.html">)</a>&gt;,
+}</pre><div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><div class='docblock'><p>The full set of region constraints gathered up by the collector.
+Describes constraints between the region variables and other
+regions, as well as other conditions that must be verified, or
+assumptions that can be made.</p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.constraints" class="structfield small-section-header">
+                           <a href="#structfield.constraints" class="anchor field"></a>
+                           <span id="constraints.v" class='invisible'>
+                           <code>constraints: <a class="struct" href="../../../alloc/btree/map/struct.BTreeMap.html" title="struct alloc::btree::map::BTreeMap">BTreeMap</a>&lt;<a class="enum" href="../../../rustc/infer/region_constraints/enum.Constraint.html" title="enum rustc::infer::region_constraints::Constraint">Constraint</a>&lt;'tcx&gt;, <a class="enum" href="../../../rustc/infer/enum.SubregionOrigin.html" title="enum rustc::infer::SubregionOrigin">SubregionOrigin</a>&lt;'tcx&gt;&gt;</code>
+                           </span></span><span class='stab unstable'></span><div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><div class='docblock'><p>Constraints of the form <code>A &lt;= B</code>, where either <code>A</code> or <code>B</code> can
+be a region variable (or neither, as it happens).</p>
+</div><span id="structfield.verifys" class="structfield small-section-header">
+                           <a href="#structfield.verifys" class="anchor field"></a>
+                           <span id="verifys.v" class='invisible'>
+                           <code>verifys: <a class="struct" href="../../../alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../../../rustc/infer/region_constraints/struct.Verify.html" title="struct rustc::infer::region_constraints::Verify">Verify</a>&lt;'tcx&gt;&gt;</code>
+                           </span></span><span class='stab unstable'></span><div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><div class='docblock'><p>A &quot;verify&quot; is something that we need to verify after inference
+is done, but which does not directly affect inference in any
+way.</p>
+
+<p>An example is a <code>A &lt;= B</code> where neither <code>A</code> nor <code>B</code> are
+inference variables.</p>
+</div><span id="structfield.givens" class="structfield small-section-header">
+                           <a href="#structfield.givens" class="anchor field"></a>
+                           <span id="givens.v" class='invisible'>
+                           <code>givens: <a class="type" href="../../../rustc/util/nodemap/type.FxHashSet.html" title="type rustc::util::nodemap::FxHashSet">FxHashSet</a>&lt;<a class="primitive" href="../../../std/primitive.tuple.html">(</a><a class="type" href="../../../rustc/ty/type.Region.html" title="type rustc::ty::Region">Region</a>&lt;'tcx&gt;, <a class="struct" href="../../../rustc/ty/struct.RegionVid.html" title="struct rustc::ty::RegionVid">RegionVid</a><a class="primitive" href="../../../std/primitive.tuple.html">)</a>&gt;</code>
+                           </span></span><span class='stab unstable'></span><div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><div class='docblock'><p>A &quot;given&quot; is a relationship that is known to hold. In
+particular, we often know from closure fn signatures that a
+particular free region must be a subregion of a region
+variable:</p>
+
+<p>foo.iter().filter(&lt;&#39;a&gt; |x: &amp;&#39;a &amp;&#39;b T| ...)</p>
+
+<p>In situations like this, <code>&#39;b</code> is in fact a region variable
+introduced by the call to <code>iter()</code>, and <code>&#39;a</code> is a bound region
+on the closure (as indicated by the <code>&lt;&#39;a&gt;</code> prefix). If we are
+naive, we wind up inferring that <code>&#39;b</code> must be <code>&#39;static</code>,
+because we require that it be greater than <code>&#39;a</code> and we do not
+know what <code>&#39;a</code> is precisely.</p>
+
+<p>This hashmap is used to avoid that naive scenario. Basically
+we record the fact that <code>&#39;a &lt;= &#39;b</code> is implied by the fn
+signature, and then ignore the constraint when solving
+equations. This is a bit of a hack but seems to work.</p>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;'tcx&gt; <a class="struct" href="../../../rustc/infer/region_constraints/struct.RegionConstraintData.html" title="struct rustc::infer::region_constraints::RegionConstraintData">RegionConstraintData</a>&lt;'tcx&gt;</code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/rustc/infer/region_constraints/mod.rs.html#946-956' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.is_empty' class="method"><span id='is_empty.v' class='invisible'><code>pub fn <a href='#method.is_empty' class='fnname'>is_empty</a>(&amp;self) -&gt; <a class="primitive" href="../../../std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/rustc/infer/region_constraints/mod.rs.html#948-955' title='goto source code'>[src]</a></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><div class='docblock'><p>True if this region constraint data contains no constraints.</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Default' class='impl'><span class='in-band'><code>impl&lt;'tcx&gt; <a class="trait" href="../../../core/default/trait.Default.html" title="trait core::default::Default">Default</a> for <a class="struct" href="../../../rustc/infer/region_constraints/struct.RegionConstraintData.html" title="struct rustc::infer::region_constraints::RegionConstraintData">RegionConstraintData</a>&lt;'tcx&gt;</code><a href='#impl-Default' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/rustc/infer/region_constraints/mod.rs.html#85' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.default' class="method"><span id='default.v' class='invisible'><code>fn <a href='../../../core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class="struct" href="../../../rustc/infer/region_constraints/struct.RegionConstraintData.html" title="struct rustc::infer::region_constraints::RegionConstraintData">RegionConstraintData</a>&lt;'tcx&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/rustc/infer/region_constraints/mod.rs.html#85' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns the &quot;default value&quot; for a type. <a href="../../../core/default/trait.Default.html#tymethod.default">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "rustc";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

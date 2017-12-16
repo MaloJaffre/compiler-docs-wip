@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["register_builtins",""]],"macro":[["path_local",""],["path_std",""],["pathvec_std",""]],"mod":[["deriving","The compiler code necessary to implement the `#[derive]` extensions."],["proc_macro_impl",""],["proc_macro_registrar",""]]});

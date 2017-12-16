@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `CompileTimeEvaluator` struct in crate `rustc_mir`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, CompileTimeEvaluator">
+
+    <title>rustc_mir::interpret::CompileTimeEvaluator - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Struct CompileTimeEvaluator</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Machine%3C%27tcx%3E">Machine&lt;&#39;tcx&gt;</a></div></div><p class='location'><a href='../index.html'>rustc_mir</a>::<wbr><a href='index.html'>interpret</a></p><script>window.sidebarCurrent = {name: 'CompileTimeEvaluator', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>rustc_mir</a>::<wbr><a href='index.html'>interpret</a>::<wbr><a class="struct" href=''>CompileTimeEvaluator</a></span><span class='out-of-band'><span class='since' title='Stable since Rust version '></span><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/rustc_mir/interpret/const_eval.rs.html#130' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct CompileTimeEvaluator;</pre><div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Machine%3C%27tcx%3E' class='impl'><span class='in-band'><code>impl&lt;'tcx&gt; <a class="trait" href="../../rustc_mir/interpret/trait.Machine.html" title="trait rustc_mir::interpret::Machine">Machine</a>&lt;'tcx&gt; for <a class="struct" href="../../rustc_mir/interpret/struct.CompileTimeEvaluator.html" title="struct rustc_mir::interpret::CompileTimeEvaluator">CompileTimeEvaluator</a></code><a href='#impl-Machine%3C%27tcx%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_mir/interpret/const_eval.rs.html#174-295' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.MemoryData' class="type"><span id='MemoryData.t' class='invisible'><code>type <a href='../../rustc_mir/interpret/trait.Machine.html#associatedtype.MemoryData' class="type">MemoryData</a> = <a class="primitive" href="../../std/primitive.unit.html">()</a></code></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><div class='docblock'><p>Additional data that can be accessed via the Memory</p>
+</div><h4 id='associatedtype.MemoryKinds' class="type"><span id='MemoryKinds.t' class='invisible'><code>type <a href='../../rustc_mir/interpret/trait.Machine.html#associatedtype.MemoryKinds' class="type">MemoryKinds</a> = <a class="primitive" href="../../std/primitive.never.html">!</a></code></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><div class='docblock'><p>Additional memory kinds a machine wishes to distinguish from the builtin ones</p>
+</div><h4 id='method.eval_fn_call' class="method"><span id='eval_fn_call.v' class='invisible'><code>fn <a href='../../rustc_mir/interpret/trait.Machine.html#tymethod.eval_fn_call' class='fnname'>eval_fn_call</a>&lt;'a&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;ecx: &amp;mut <a class="struct" href="../../rustc_mir/interpret/struct.EvalContext.html" title="struct rustc_mir::interpret::EvalContext">EvalContext</a>&lt;'a, 'tcx, Self&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;instance: <a class="struct" href="../../rustc/ty/instance/struct.Instance.html" title="struct rustc::ty::instance::Instance">Instance</a>&lt;'tcx&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;destination: <a class="enum" href="../../core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="../../std/primitive.tuple.html">(</a><a class="enum" href="../../rustc_mir/interpret/enum.Place.html" title="enum rustc_mir::interpret::Place">Place</a>, <a class="struct" href="../../rustc/mir/struct.BasicBlock.html" title="struct rustc::mir::BasicBlock">BasicBlock</a><a class="primitive" href="../../std/primitive.tuple.html">)</a>&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;_args: <a class="primitive" href="../../std/primitive.slice.html">&amp;[</a><a class="struct" href="../../rustc_mir/interpret/struct.ValTy.html" title="struct rustc_mir::interpret::ValTy">ValTy</a>&lt;'tcx&gt;<a class="primitive" href="../../std/primitive.slice.html">]</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;span: <a class="struct" href="../../syntax_pos/span_encoding/struct.Span.html" title="struct syntax_pos::span_encoding::Span">Span</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;_sig: <a class="struct" href="../../rustc/ty/sty/struct.FnSig.html" title="struct rustc::ty::sty::FnSig">FnSig</a>&lt;'tcx&gt;<br>) -&gt; <a class="type" href="../../rustc/mir/interpret/error/type.EvalResult.html" title="type rustc::mir::interpret::error::EvalResult">EvalResult</a>&lt;'tcx, <a class="primitive" href="../../std/primitive.bool.html">bool</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_mir/interpret/const_eval.rs.html#177-216' title='goto source code'>[src]</a></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><div class='docblock'><p>Entry point to all function calls. <a href="../../rustc_mir/interpret/trait.Machine.html#tymethod.eval_fn_call">Read more</a></p>
+</div><h4 id='method.call_intrinsic' class="method"><span id='call_intrinsic.v' class='invisible'><code>fn <a href='../../rustc_mir/interpret/trait.Machine.html#tymethod.call_intrinsic' class='fnname'>call_intrinsic</a>&lt;'a&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;ecx: &amp;mut <a class="struct" href="../../rustc_mir/interpret/struct.EvalContext.html" title="struct rustc_mir::interpret::EvalContext">EvalContext</a>&lt;'a, 'tcx, Self&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;instance: <a class="struct" href="../../rustc/ty/instance/struct.Instance.html" title="struct rustc::ty::instance::Instance">Instance</a>&lt;'tcx&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;_args: <a class="primitive" href="../../std/primitive.slice.html">&amp;[</a><a class="struct" href="../../rustc_mir/interpret/struct.ValTy.html" title="struct rustc_mir::interpret::ValTy">ValTy</a>&lt;'tcx&gt;<a class="primitive" href="../../std/primitive.slice.html">]</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;dest: <a class="enum" href="../../rustc_mir/interpret/enum.Place.html" title="enum rustc_mir::interpret::Place">Place</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;dest_layout: <a class="struct" href="../../rustc/ty/layout/struct.TyLayout.html" title="struct rustc::ty::layout::TyLayout">TyLayout</a>&lt;'tcx&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;target: <a class="struct" href="../../rustc/mir/struct.BasicBlock.html" title="struct rustc::mir::BasicBlock">BasicBlock</a><br>) -&gt; <a class="type" href="../../rustc/mir/interpret/error/type.EvalResult.html" title="type rustc::mir::interpret::error::EvalResult">EvalResult</a>&lt;'tcx&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_mir/interpret/const_eval.rs.html#219-253' title='goto source code'>[src]</a></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><div class='docblock'><p>directly process an intrinsic without pushing a stack frame.</p>
+</div><h4 id='method.try_ptr_op' class="method"><span id='try_ptr_op.v' class='invisible'><code>fn <a href='../../rustc_mir/interpret/trait.Machine.html#tymethod.try_ptr_op' class='fnname'>try_ptr_op</a>&lt;'a&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;_ecx: &amp;<a class="struct" href="../../rustc_mir/interpret/struct.EvalContext.html" title="struct rustc_mir::interpret::EvalContext">EvalContext</a>&lt;'a, 'tcx, Self&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;_bin_op: <a class="enum" href="../../rustc/mir/enum.BinOp.html" title="enum rustc::mir::BinOp">BinOp</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;left: <a class="enum" href="../../rustc/mir/interpret/value/enum.PrimVal.html" title="enum rustc::mir::interpret::value::PrimVal">PrimVal</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;_left_ty: <a class="type" href="../../rustc/ty/type.Ty.html" title="type rustc::ty::Ty">Ty</a>&lt;'tcx&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;right: <a class="enum" href="../../rustc/mir/interpret/value/enum.PrimVal.html" title="enum rustc::mir::interpret::value::PrimVal">PrimVal</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;_right_ty: <a class="type" href="../../rustc/ty/type.Ty.html" title="type rustc::ty::Ty">Ty</a>&lt;'tcx&gt;<br>) -&gt; <a class="type" href="../../rustc/mir/interpret/error/type.EvalResult.html" title="type rustc::mir::interpret::error::EvalResult">EvalResult</a>&lt;'tcx, <a class="enum" href="../../core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="../../std/primitive.tuple.html">(</a><a class="enum" href="../../rustc/mir/interpret/value/enum.PrimVal.html" title="enum rustc::mir::interpret::value::PrimVal">PrimVal</a>, <a class="primitive" href="../../std/primitive.bool.html">bool</a><a class="primitive" href="../../std/primitive.tuple.html">)</a>&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_mir/interpret/const_eval.rs.html#255-270' title='goto source code'>[src]</a></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><div class='docblock'><p>Called for all binary operations except on float types. <a href="../../rustc_mir/interpret/trait.Machine.html#tymethod.try_ptr_op">Read more</a></p>
+</div><h4 id='method.mark_static_initialized' class="method"><span id='mark_static_initialized.v' class='invisible'><code>fn <a href='../../rustc_mir/interpret/trait.Machine.html#tymethod.mark_static_initialized' class='fnname'>mark_static_initialized</a>(m: <a class="primitive" href="../../std/primitive.never.html">!</a>) -&gt; <a class="type" href="../../rustc/mir/interpret/error/type.EvalResult.html" title="type rustc::mir::interpret::error::EvalResult">EvalResult</a>&lt;'tcx&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_mir/interpret/const_eval.rs.html#272-274' title='goto source code'>[src]</a></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><div class='docblock'><p>Called when trying to mark machine defined <code>MemoryKinds</code> as static</p>
+</div><h4 id='method.box_alloc' class="method"><span id='box_alloc.v' class='invisible'><code>fn <a href='../../rustc_mir/interpret/trait.Machine.html#tymethod.box_alloc' class='fnname'>box_alloc</a>&lt;'a&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;_ecx: &amp;mut <a class="struct" href="../../rustc_mir/interpret/struct.EvalContext.html" title="struct rustc_mir::interpret::EvalContext">EvalContext</a>&lt;'a, 'tcx, Self&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;_ty: <a class="type" href="../../rustc/ty/type.Ty.html" title="type rustc::ty::Ty">Ty</a>&lt;'tcx&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;_dest: <a class="enum" href="../../rustc_mir/interpret/enum.Place.html" title="enum rustc_mir::interpret::Place">Place</a><br>) -&gt; <a class="type" href="../../rustc/mir/interpret/error/type.EvalResult.html" title="type rustc::mir::interpret::error::EvalResult">EvalResult</a>&lt;'tcx&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_mir/interpret/const_eval.rs.html#276-284' title='goto source code'>[src]</a></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><div class='docblock'><p>Heap allocations via the <code>box</code> keyword <a href="../../rustc_mir/interpret/trait.Machine.html#tymethod.box_alloc">Read more</a></p>
+</div><h4 id='method.global_item_with_linkage' class="method"><span id='global_item_with_linkage.v' class='invisible'><code>fn <a href='../../rustc_mir/interpret/trait.Machine.html#tymethod.global_item_with_linkage' class='fnname'>global_item_with_linkage</a>&lt;'a&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;_ecx: &amp;mut <a class="struct" href="../../rustc_mir/interpret/struct.EvalContext.html" title="struct rustc_mir::interpret::EvalContext">EvalContext</a>&lt;'a, 'tcx, Self&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;_instance: <a class="struct" href="../../rustc/ty/instance/struct.Instance.html" title="struct rustc::ty::instance::Instance">Instance</a>&lt;'tcx&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;_mutability: <a class="enum" href="../../syntax/ast/enum.Mutability.html" title="enum syntax::ast::Mutability">Mutability</a><br>) -&gt; <a class="type" href="../../rustc/mir/interpret/error/type.EvalResult.html" title="type rustc::mir::interpret::error::EvalResult">EvalResult</a>&lt;'tcx&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_mir/interpret/const_eval.rs.html#286-294' title='goto source code'>[src]</a></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><div class='docblock'><p>Called when trying to access a global declared with a <code>linkage</code> attribute</p>
+</div><h4 id='method.check_locks' class="method"><span id='check_locks.v' class='invisible'><code>fn <a href='../../rustc_mir/interpret/trait.Machine.html#method.check_locks' class='fnname'>check_locks</a>&lt;'a&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;_mem: &amp;<a class="struct" href="../../rustc_mir/interpret/struct.Memory.html" title="struct rustc_mir::interpret::Memory">Memory</a>&lt;'a, 'tcx, Self&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;_ptr: <a class="struct" href="../../rustc/mir/interpret/struct.MemoryPointer.html" title="struct rustc::mir::interpret::MemoryPointer">MemoryPointer</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;_size: <a class="primitive" href="../../std/primitive.u64.html">u64</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;_access: <a class="enum" href="../../rustc/mir/interpret/enum.AccessKind.html" title="enum rustc::mir::interpret::AccessKind">AccessKind</a><br>) -&gt; <a class="type" href="../../rustc/mir/interpret/error/type.EvalResult.html" title="type rustc::mir::interpret::error::EvalResult">EvalResult</a>&lt;'tcx&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_mir/interpret/machine.rs.html#81-88' title='goto source code'>[src]</a></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><h4 id='method.add_lock' class="method"><span id='add_lock.v' class='invisible'><code>fn <a href='../../rustc_mir/interpret/trait.Machine.html#method.add_lock' class='fnname'>add_lock</a>&lt;'a&gt;(_mem: &amp;mut <a class="struct" href="../../rustc_mir/interpret/struct.Memory.html" title="struct rustc_mir::interpret::Memory">Memory</a>&lt;'a, 'tcx, Self&gt;, _id: <a class="primitive" href="../../std/primitive.u64.html">u64</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_mir/interpret/machine.rs.html#90-93' title='goto source code'>[src]</a></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><h4 id='method.free_lock' class="method"><span id='free_lock.v' class='invisible'><code>fn <a href='../../rustc_mir/interpret/trait.Machine.html#method.free_lock' class='fnname'>free_lock</a>&lt;'a&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;_mem: &amp;mut <a class="struct" href="../../rustc_mir/interpret/struct.Memory.html" title="struct rustc_mir::interpret::Memory">Memory</a>&lt;'a, 'tcx, Self&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;_id: <a class="primitive" href="../../std/primitive.u64.html">u64</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;_len: <a class="primitive" href="../../std/primitive.u64.html">u64</a><br>) -&gt; <a class="type" href="../../rustc/mir/interpret/error/type.EvalResult.html" title="type rustc::mir::interpret::error::EvalResult">EvalResult</a>&lt;'tcx&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_mir/interpret/machine.rs.html#95-101' title='goto source code'>[src]</a></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><h4 id='method.end_region' class="method"><span id='end_region.v' class='invisible'><code>fn <a href='../../rustc_mir/interpret/trait.Machine.html#method.end_region' class='fnname'>end_region</a>&lt;'a&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;_ecx: &amp;mut <a class="struct" href="../../rustc_mir/interpret/struct.EvalContext.html" title="struct rustc_mir::interpret::EvalContext">EvalContext</a>&lt;'a, 'tcx, Self&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;_reg: <a class="enum" href="../../core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../rustc/middle/region/struct.Scope.html" title="struct rustc::middle::region::Scope">Scope</a>&gt;<br>) -&gt; <a class="type" href="../../rustc/mir/interpret/error/type.EvalResult.html" title="type rustc::mir::interpret::error::EvalResult">EvalResult</a>&lt;'tcx&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_mir/interpret/machine.rs.html#103-108' title='goto source code'>[src]</a></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div><h4 id='method.validation_op' class="method"><span id='validation_op.v' class='invisible'><code>fn <a href='../../rustc_mir/interpret/trait.Machine.html#method.validation_op' class='fnname'>validation_op</a>&lt;'a&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;_ecx: &amp;mut <a class="struct" href="../../rustc_mir/interpret/struct.EvalContext.html" title="struct rustc_mir::interpret::EvalContext">EvalContext</a>&lt;'a, 'tcx, Self&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;_op: <a class="enum" href="../../rustc/mir/enum.ValidationOp.html" title="enum rustc::mir::ValidationOp">ValidationOp</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;_operand: &amp;<a class="struct" href="../../rustc/mir/struct.ValidationOperand.html" title="struct rustc::mir::ValidationOperand">ValidationOperand</a>&lt;'tcx, <a class="enum" href="../../rustc/mir/enum.Place.html" title="enum rustc::mir::Place">Place</a>&lt;'tcx&gt;&gt;<br>) -&gt; <a class="type" href="../../rustc/mir/interpret/error/type.EvalResult.html" title="type rustc::mir::interpret::error::EvalResult">EvalResult</a>&lt;'tcx&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rustc_mir/interpret/machine.rs.html#110-116' title='goto source code'>[src]</a></span></h4>
+<div class='stability'><div class='stab unstable'><details><summary><span class=microscope>🔬</span> This is a nightly-only experimental API.  (<code>rustc_private</code>)</summary><p>this crate is being loaded from the sysroot, an unstable location; did you mean to load this crate from crates.io via <code>Cargo.toml</code> instead?</p>
+</details></div></div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "rustc_mir";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

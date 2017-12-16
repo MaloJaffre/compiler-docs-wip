@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Module","In-memory representation of a serialized wasm module."],["ModuleOptions",""]]});

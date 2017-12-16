@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="Source to the Rust file `src/librustc_back/target/wasm32_unknown_unknown.rs`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang">
+
+    <title>wasm32_unknown_unknown.rs.html -- source</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    <link rel="shortcut icon" href="https://doc.rust-lang.org/favicon.ico">
+    
+</head>
+<body class="rustdoc source">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        <a href='../../../rustc_back/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
+        
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
+<span id="2">  2</span>
+<span id="3">  3</span>
+<span id="4">  4</span>
+<span id="5">  5</span>
+<span id="6">  6</span>
+<span id="7">  7</span>
+<span id="8">  8</span>
+<span id="9">  9</span>
+<span id="10"> 10</span>
+<span id="11"> 11</span>
+<span id="12"> 12</span>
+<span id="13"> 13</span>
+<span id="14"> 14</span>
+<span id="15"> 15</span>
+<span id="16"> 16</span>
+<span id="17"> 17</span>
+<span id="18"> 18</span>
+<span id="19"> 19</span>
+<span id="20"> 20</span>
+<span id="21"> 21</span>
+<span id="22"> 22</span>
+<span id="23"> 23</span>
+<span id="24"> 24</span>
+<span id="25"> 25</span>
+<span id="26"> 26</span>
+<span id="27"> 27</span>
+<span id="28"> 28</span>
+<span id="29"> 29</span>
+<span id="30"> 30</span>
+<span id="31"> 31</span>
+<span id="32"> 32</span>
+<span id="33"> 33</span>
+<span id="34"> 34</span>
+<span id="35"> 35</span>
+<span id="36"> 36</span>
+<span id="37"> 37</span>
+<span id="38"> 38</span>
+<span id="39"> 39</span>
+<span id="40"> 40</span>
+<span id="41"> 41</span>
+<span id="42"> 42</span>
+<span id="43"> 43</span>
+<span id="44"> 44</span>
+<span id="45"> 45</span>
+<span id="46"> 46</span>
+<span id="47"> 47</span>
+<span id="48"> 48</span>
+<span id="49"> 49</span>
+<span id="50"> 50</span>
+<span id="51"> 51</span>
+<span id="52"> 52</span>
+<span id="53"> 53</span>
+<span id="54"> 54</span>
+<span id="55"> 55</span>
+<span id="56"> 56</span>
+<span id="57"> 57</span>
+<span id="58"> 58</span>
+<span id="59"> 59</span>
+<span id="60"> 60</span>
+<span id="61"> 61</span>
+<span id="62"> 62</span>
+<span id="63"> 63</span>
+<span id="64"> 64</span>
+<span id="65"> 65</span>
+<span id="66"> 66</span>
+<span id="67"> 67</span>
+<span id="68"> 68</span>
+<span id="69"> 69</span>
+<span id="70"> 70</span>
+<span id="71"> 71</span>
+<span id="72"> 72</span>
+<span id="73"> 73</span>
+<span id="74"> 74</span>
+<span id="75"> 75</span>
+<span id="76"> 76</span>
+<span id="77"> 77</span>
+<span id="78"> 78</span>
+<span id="79"> 79</span>
+<span id="80"> 80</span>
+<span id="81"> 81</span>
+<span id="82"> 82</span>
+<span id="83"> 83</span>
+<span id="84"> 84</span>
+<span id="85"> 85</span>
+<span id="86"> 86</span>
+<span id="87"> 87</span>
+<span id="88"> 88</span>
+<span id="89"> 89</span>
+<span id="90"> 90</span>
+<span id="91"> 91</span>
+<span id="92"> 92</span>
+<span id="93"> 93</span>
+<span id="94"> 94</span>
+<span id="95"> 95</span>
+<span id="96"> 96</span>
+<span id="97"> 97</span>
+<span id="98"> 98</span>
+<span id="99"> 99</span>
+<span id="100">100</span>
+<span id="101">101</span>
+<span id="102">102</span>
+<span id="103">103</span>
+<span id="104">104</span>
+</pre><pre class="rust ">
+<span class="comment">// Copyright 2017 The Rust Project Developers. See the COPYRIGHT</span>
+<span class="comment">// file at the top-level directory of this distribution and at</span>
+<span class="comment">// http://rust-lang.org/COPYRIGHT.</span>
+<span class="comment">//</span>
+<span class="comment">// Licensed under the Apache License, Version 2.0 &lt;LICENSE-APACHE or</span>
+<span class="comment">// http://www.apache.org/licenses/LICENSE-2.0&gt; or the MIT license</span>
+<span class="comment">// &lt;LICENSE-MIT or http://opensource.org/licenses/MIT&gt;, at your</span>
+<span class="comment">// option. This file may not be copied, modified, or distributed</span>
+<span class="comment">// except according to those terms.</span>
+
+<span class="comment">// The wasm32-unknown-unknown target is currently a highly experimental version</span>
+<span class="comment">// of a wasm-based target which does *not* use the Emscripten toolchain. Instead</span>
+<span class="comment">// this is a pretty flavorful (aka hacked up) target right now. The definition</span>
+<span class="comment">// and semantics of this target are likely to change and so this shouldn&#39;t be</span>
+<span class="comment">// relied on just yet.</span>
+<span class="comment">//</span>
+<span class="comment">// In general everyone is currently waiting on a linker for wasm code. In the</span>
+<span class="comment">// meantime we have no means of actually making use of the traditional separate</span>
+<span class="comment">// compilation model. At a high level this means that assembling Rust programs</span>
+<span class="comment">// into a WebAssembly program looks like:</span>
+<span class="comment">//</span>
+<span class="comment">//  1. All intermediate artifacts are LLVM bytecode. We&#39;ll be using LLVM as</span>
+<span class="comment">//     a linker later on.</span>
+<span class="comment">//  2. For the final artifact we emit one giant assembly file (WebAssembly</span>
+<span class="comment">//     doesn&#39;t have an object file format). To do this we force LTO to be turned</span>
+<span class="comment">//     on (`requires_lto` below) to ensure all Rust code is in one module. Any</span>
+<span class="comment">//     &quot;linked&quot; C library is basically just ignored.</span>
+<span class="comment">//  3. Using LLVM we emit a `foo.s` file (assembly) with some... what I can only</span>
+<span class="comment">//     describe as arcane syntax. From there we need to actually change this</span>
+<span class="comment">//     into a wasm module. For this step we use the `binaryen` project. This</span>
+<span class="comment">//     project is mostly intended as a WebAssembly code generator, but for now</span>
+<span class="comment">//     we&#39;re just using its LLVM-assembly-to-wasm-module conversion utilities.</span>
+<span class="comment">//</span>
+<span class="comment">// And voila, out comes a web assembly module! There&#39;s some various tweaks here</span>
+<span class="comment">// and there, but that&#39;s the high level at least. Note that this will be</span>
+<span class="comment">// rethought from the ground up once a linker (lld) is available, so this is all</span>
+<span class="comment">// temporary and should improve in the future.</span>
+
+<span class="kw">use</span> <span class="ident">LinkerFlavor</span>;
+<span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">Target</span>, <span class="ident">TargetOptions</span>, <span class="ident">PanicStrategy</span>};
+
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">target</span>() <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Target</span>, <span class="ident">String</span><span class="op">&gt;</span> {
+    <span class="kw">let</span> <span class="ident">opts</span> <span class="op">=</span> <span class="ident">TargetOptions</span> {
+        <span class="ident">linker</span>: <span class="string">&quot;not-used&quot;</span>.<span class="ident">to_string</span>(),
+
+        <span class="comment">// we allow dynamic linking, but only cdylibs. Basically we allow a</span>
+        <span class="comment">// final library artifact that exports some symbols (a wasm module) but</span>
+        <span class="comment">// we don&#39;t allow intermediate `dylib` crate types</span>
+        <span class="ident">dynamic_linking</span>: <span class="bool-val">true</span>,
+        <span class="ident">only_cdylib</span>: <span class="bool-val">true</span>,
+
+        <span class="comment">// This means we&#39;ll just embed a `start` function in the wasm module</span>
+        <span class="ident">executables</span>: <span class="bool-val">true</span>,
+
+        <span class="comment">// relatively self-explanatory!</span>
+        <span class="ident">exe_suffix</span>: <span class="string">&quot;.wasm&quot;</span>.<span class="ident">to_string</span>(),
+        <span class="ident">dll_prefix</span>: <span class="string">&quot;&quot;</span>.<span class="ident">to_string</span>(),
+        <span class="ident">dll_suffix</span>: <span class="string">&quot;.wasm&quot;</span>.<span class="ident">to_string</span>(),
+        <span class="ident">linker_is_gnu</span>: <span class="bool-val">false</span>,
+
+        <span class="comment">// We&#39;re storing bitcode for now in all the rlibs</span>
+        <span class="ident">obj_is_bitcode</span>: <span class="bool-val">true</span>,
+
+        <span class="comment">// A bit of a lie, but &quot;eh&quot;</span>
+        <span class="ident">max_atomic_width</span>: <span class="prelude-val">Some</span>(<span class="number">32</span>),
+
+        <span class="comment">// Unwinding doesn&#39;t work right now, so the whole target unconditionally</span>
+        <span class="comment">// defaults to panic=abort. Note that this is guaranteed to change in</span>
+        <span class="comment">// the future once unwinding is implemented. Don&#39;t rely on this.</span>
+        <span class="ident">panic_strategy</span>: <span class="ident">PanicStrategy</span>::<span class="ident">Abort</span>,
+
+        <span class="comment">// There&#39;s no linker yet so we&#39;re forced to use LLVM as a linker. This</span>
+        <span class="comment">// means that we must always enable LTO for final artifacts.</span>
+        <span class="ident">requires_lto</span>: <span class="bool-val">true</span>,
+
+        <span class="comment">// Wasm doesn&#39;t have atomics yet, so tell LLVM that we&#39;re in a single</span>
+        <span class="comment">// threaded model which will legalize atomics to normal operations.</span>
+        <span class="ident">singlethread</span>: <span class="bool-val">true</span>,
+
+        <span class="comment">// Because we&#39;re always enabling LTO we can&#39;t enable builtin lowering as</span>
+        <span class="comment">// otherwise we&#39;ll lower the definition of the `memcpy` function to</span>
+        <span class="comment">// memcpy itself. Note that this is specifically because we&#39;re</span>
+        <span class="comment">// performing LTO with compiler-builtins.</span>
+        <span class="ident">no_builtins</span>: <span class="bool-val">true</span>,
+
+        .. <span class="ident">Default</span>::<span class="ident">default</span>()
+    };
+    <span class="prelude-val">Ok</span>(<span class="ident">Target</span> {
+        <span class="ident">llvm_target</span>: <span class="string">&quot;wasm32-unknown-unknown&quot;</span>.<span class="ident">to_string</span>(),
+        <span class="ident">target_endian</span>: <span class="string">&quot;little&quot;</span>.<span class="ident">to_string</span>(),
+        <span class="ident">target_pointer_width</span>: <span class="string">&quot;32&quot;</span>.<span class="ident">to_string</span>(),
+        <span class="ident">target_c_int_width</span>: <span class="string">&quot;32&quot;</span>.<span class="ident">to_string</span>(),
+        <span class="comment">// This is basically guaranteed to change in the future, don&#39;t rely on</span>
+        <span class="comment">// this. Use `not(target_os = &quot;emscripten&quot;)` for now.</span>
+        <span class="ident">target_os</span>: <span class="string">&quot;unknown&quot;</span>.<span class="ident">to_string</span>(),
+        <span class="ident">target_env</span>: <span class="string">&quot;&quot;</span>.<span class="ident">to_string</span>(),
+        <span class="ident">target_vendor</span>: <span class="string">&quot;unknown&quot;</span>.<span class="ident">to_string</span>(),
+        <span class="ident">data_layout</span>: <span class="string">&quot;e-m:e-p:32:32-i64:64-n32:64-S128&quot;</span>.<span class="ident">to_string</span>(),
+        <span class="ident">arch</span>: <span class="string">&quot;wasm32&quot;</span>.<span class="ident">to_string</span>(),
+        <span class="comment">// A bit of a lie, but it gets the job done</span>
+        <span class="ident">linker_flavor</span>: <span class="ident">LinkerFlavor</span>::<span class="ident">Binaryen</span>,
+        <span class="ident">options</span>: <span class="ident">opts</span>,
+    })
+}
+</pre>
+</section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "rustc_back";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

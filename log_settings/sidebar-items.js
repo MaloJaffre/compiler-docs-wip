@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["settings","obtains a handle to the internal settings struct"]],"struct":[["Settings","Contains various settings that libraries might want to set to notify loggers that also use this crate of internal library states"]]});

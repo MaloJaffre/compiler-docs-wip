@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["BlockMode",""],["Error",""],["LhsExpr",""],["PathStyle","How to parse a path."],["SemiColonMode",""],["TokenType",""]],"struct":[["ModulePath","Information about the path to a module."],["ModulePathError",""],["ModulePathSuccess",""],["Parser",""],["Restrictions",""]]});

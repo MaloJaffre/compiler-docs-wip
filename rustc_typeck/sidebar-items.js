@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DIAGNOSTICS",""]],"fn":[["check_crate",""],["hir_ty_to_ty","A quasi-deprecated helper used in rustdoc and save-analysis to get the type from a HIR node."],["provide",""]],"struct":[["TypeAndSubsts",""]]});

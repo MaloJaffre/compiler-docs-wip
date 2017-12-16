@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["RemoveNoopLandingPads","A pass that removes no-op landing pads and replaces jumps to them with `None`. This is important because otherwise LLVM generates terrible code for these."]]});
